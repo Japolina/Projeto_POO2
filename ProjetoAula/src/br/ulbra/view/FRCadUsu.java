@@ -5,6 +5,8 @@
  */
 package br.ulbra.view;
 
+import br.ulbra.controller.UsuarioController;
+import br.ulbra.utils.Utils;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,7 +46,7 @@ public class FRCadUsu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtSenha1 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        chkAtivo = new javax.swing.JCheckBox();
         btSalvar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
 
@@ -100,9 +102,9 @@ public class FRCadUsu extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Ativo");
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkAtivoActionPerformed(evt);
             }
         });
 
@@ -154,7 +156,7 @@ public class FRCadUsu extends javax.swing.JFrame {
                                 .addGap(126, 126, 126)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1)))))
+                                    .addComponent(chkAtivo)))))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -186,7 +188,7 @@ public class FRCadUsu extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(chkAtivo)
                     .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
@@ -229,9 +231,9 @@ public class FRCadUsu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAtivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkAtivoActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
@@ -278,11 +280,16 @@ public class FRCadUsu extends javax.swing.JFrame {
     }
     
     private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
-        if(!verificarCampos()){
+         if(!verificarCampos()){
             return;
-        }
-        UsuarioController controller = new UsuarioControler(){
-            if(controler)
+         }
+         
+        UsuarioController controller = new UsuarioController();
+        String senha = new String (txtSenha.getPassword());
+            if(controller.adicionarUsuario(txtNome.getText(),txtEmail.getText(),
+                    senha, txtDataNasc.getText(), Utils.salvarBoolean(chkAtivo.isSelected()))){
+                this.dispose();
+            
         }
     }//GEN-LAST:event_btSalvarMouseClicked
 
@@ -325,7 +332,7 @@ public class FRCadUsu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox chkAtivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
