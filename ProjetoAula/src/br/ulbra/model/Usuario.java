@@ -48,6 +48,13 @@ public class Usuario {
     public void setAtivoUsu (int ativoUsu){
         this.ativoUsu = ativoUsu;
     }
+    public String ativoToString(){
+        if(this.ativoUsu == 1)
+            return "Ativo";
+        else
+            return "Inativo";
+    }
+    
     @Override
     public String toString(){
         return "Usuario{" + "pk_usuario=" + pk_usuario + ", nomeUsu=" + nomeUsu 
