@@ -7,6 +7,7 @@ package br.ulbra.view;
 
 import br.ulbra.controller.UsuarioController;
 import br.ulbra.model.Usuario;
+import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,7 +52,7 @@ public class FRConsu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/search.png"))); // NOI18N
 
@@ -62,6 +63,11 @@ public class FRConsu extends javax.swing.JFrame {
         txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltroActionPerformed(evt);
+            }
+        });
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyPressed(evt);
             }
         });
 
@@ -86,10 +92,13 @@ public class FRConsu extends javax.swing.JFrame {
                 "Cod", "Nome", "E-mail", "Data Nasc.", "Ativo"
             }
         ));
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
         if (tabela.getColumnModel().getColumnCount() > 0) {
-            tabela.getColumnModel().getColumn(0).setResizable(false);
-            tabela.getColumnModel().getColumn(2).setResizable(false);
             tabela.getColumnModel().getColumn(3).setResizable(false);
             tabela.getColumnModel().getColumn(4).setResizable(false);
         }
@@ -172,6 +181,21 @@ public class FRConsu extends javax.swing.JFrame {
     private void btPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btPesquisarMouseClicked
         pesquisar();
     }//GEN-LAST:event_btPesquisarMouseClicked
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        if(tabela.getSelectedRow() != 1){
+            int pk = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
+            FRUpDel telaUPD = new FRUpDel();
+            telaUPD.setPkUsuario(pk);
+            telaUPD.setVisible(true);
+        }
+    }//GEN-LAST:event_tabelaMouseClicked
+
+    private void txtFiltroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+     pesquisar();
+    }
+    }//GEN-LAST:event_txtFiltroKeyPressed
 
     /**
      * @param args the command line arguments

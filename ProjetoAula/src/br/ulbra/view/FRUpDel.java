@@ -5,6 +5,11 @@
  */
 package br.ulbra.view;
 
+import br.ulbra.controller.UsuarioController;
+import br.ulbra.model.Usuario;
+import br.ulbra.utils.Utils;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno.saolucas
@@ -17,6 +22,12 @@ public class FRUpDel extends javax.swing.JFrame {
     public FRUpDel() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    private int pkUsuario;
+    
+    public void setPkUsuario(int pkUsuario){
+        this.pkUsuario = pkUsuario;
     }
 
     /**
@@ -42,14 +53,21 @@ public class FRUpDel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtSenha1 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        chkAtivo = new javax.swing.JCheckBox();
         btExcluir2 = new javax.swing.JButton();
         btVoltar2 = new javax.swing.JButton();
-        btCadastro2 = new javax.swing.JButton();
+        btAlterar = new javax.swing.JButton();
+        txtCodigo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/userconfig.png"))); // NOI18N
 
@@ -99,9 +117,9 @@ public class FRUpDel extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Ativo");
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkAtivoActionPerformed(evt);
             }
         });
 
@@ -110,65 +128,86 @@ public class FRUpDel extends javax.swing.JFrame {
 
         btVoltar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
         btVoltar2.setText("Voltar");
+        btVoltar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btVoltar2MouseClicked(evt);
+            }
+        });
 
-        btCadastro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/lapis2.png"))); // NOI18N
-        btCadastro2.setText("Cadastrar");
+        btAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/lapis2.png"))); // NOI18N
+        btAlterar.setText("Alterar");
+        btAlterar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btAlterarMouseClicked(evt);
+            }
+        });
+
+        txtCodigo.setEditable(false);
+        txtCodigo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Codigo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel3))
-                                    .addGap(289, 289, 289))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5))
-                                    .addGap(126, 126, 126)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCheckBox1))))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtEmail1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSenha1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btCadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btVoltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel2)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel9)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3))
+                            .addGap(258, 258, 258))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(127, 127, 127)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(chkAtivo))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtEmail1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtSenha1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btVoltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel1)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(28, 28, 28)))
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel2)))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,7 +221,7 @@ public class FRUpDel extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(chkAtivo)
                     .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
@@ -192,12 +231,12 @@ public class FRUpDel extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btVoltar2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,7 +247,9 @@ public class FRUpDel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,9 +267,92 @@ public class FRUpDel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmail1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAtivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkAtivoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+         
+         UsuarioController controller = new UsuarioController();
+         Usuario usu = controller.readForPk(pkUsuario);
+         
+         String codigo = String.valueOf(usu.getPkUsuario());
+         txtCodigo.setText(codigo);
+         txtNome.setText(usu.getNomeUsu());
+         txtEmail1.setText(usu.getEmailUsu());
+         txtDataNasc.setText(usu.getDataNascUsu());
+         txtSenha.setText(usu.getSenhaUsu());
+         chkAtivo.setSelected(usu.isAtivoUsu() == 1);
+         
+    }//GEN-LAST:event_formWindowActivated
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void btVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar2MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btVoltar2MouseClicked
+
+    private boolean verificarCampos(){
+        if(txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
+            return false;
+        }
+        if(!txtNome.getText().matches("^[\\p{L} ]+$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
+            return false;
+        }
+        if(txtEmail1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Email' está vázio");
+            return false;
+        }
+        if(!txtEmail1.getText().matches("^[a-zA-Z._]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Email' possui caracteres inválidos");
+            return false;
+        }
+        if(txtDataNasc.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Data Nascimento' está vázio");
+            return false;
+        }
+        if(!txtDataNasc.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Data Nascimento' possui caracteres inválidos"
+                    +"\n\nEx: 01/01/2000");
+            return false;
+        }
+        char[] senha = txtSenha.getPassword();
+        if(new String(senha).length() < 8){
+            JOptionPane.showMessageDialog(null, "Campo 'Senha' deve ser maior que 8 caracteres");
+            return false;
+        }
+        
+        if(!new String(senha).equals(new String(txtSenha1.getPassword()))){
+            JOptionPane.showMessageDialog(null, "As senhas não condiz");
+            return false;
+        }
+
+        return true;
+    }
+    private void btAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlterarMouseClicked
+        if(!verificarCampos()){
+            return;
+         }
+         
+        UsuarioController controller = new UsuarioController();
+        String senha = new String (txtSenha.getPassword());
+        Usuario usuario = new Usuario();
+        usuario.setPkUsuario(pkUsuario);
+        usuario.setNomeUsu(txtNome.getText());
+        usuario.setEmailUsu(txtEmail1.getText());
+        usuario.setDataNascUsu(txtDataNasc.getText());
+        usuario.setAtivoUsu(Utils.salvarBoolean(chkAtivo.isSelected()));
+        usuario.setSenhaUsu(senha);
+        
+            if(controller.alterarUsuario(usuario)){
+                this.dispose();
+            
+        }
+    }//GEN-LAST:event_btAlterarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -266,10 +390,10 @@ public class FRUpDel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastro2;
+    private javax.swing.JButton btAlterar;
     private javax.swing.JButton btExcluir2;
     private javax.swing.JButton btVoltar2;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox chkAtivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -278,7 +402,9 @@ public class FRUpDel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextField txtEmail1;
     private javax.swing.JTextField txtNome;

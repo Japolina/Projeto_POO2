@@ -35,8 +35,10 @@ public class FRMenu extends javax.swing.JFrame {
         miCadUsuario.setOpaque(true);
         miCadUsuario.setBackground(Color.RED);
         miCadUsuario.setForeground(Color.BLACK);
+        jMenuBar1.setBackground(Color.BLACK);
         
     }
+//    menubar.setBackground(Color.RED); menu.setBackground(Color.yellow); menubar.setOpaque(true); menu.setOpaque(true);;
     
 
     @SuppressWarnings("unchecked")
@@ -59,7 +61,7 @@ public class FRMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("[ULBRA] - Menu Principal");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(84, 84, 84));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/phoenix.png"))); // NOI18N
 

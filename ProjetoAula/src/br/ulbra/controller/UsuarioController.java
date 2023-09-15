@@ -31,5 +31,13 @@ public class UsuarioController {
     public List<Usuario> readForDesc (String desc){
         return usuarioDAO.readForDesc(desc);
     }
+    
+    public Usuario readForPk (int pk){
+        return usuarioDAO.readForPk(pk);
+    }
+    
+     public boolean alterarUsuario(Usuario u){
+         return usuarioDAO.alterarUsuario(u);
+     }
  }
     
