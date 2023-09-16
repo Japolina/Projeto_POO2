@@ -51,7 +51,7 @@ public class FRUpDel extends javax.swing.JFrame {
         txtEmail1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtSenha1 = new javax.swing.JPasswordField();
+        txtRSenha = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         chkAtivo = new javax.swing.JCheckBox();
         btExcluir2 = new javax.swing.JButton();
@@ -112,7 +112,7 @@ public class FRUpDel extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Senha");
 
-        txtSenha1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtRSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Ativo");
@@ -125,6 +125,11 @@ public class FRUpDel extends javax.swing.JFrame {
 
         btExcluir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/trash.png"))); // NOI18N
         btExcluir2.setText("Excluir");
+        btExcluir2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btExcluir2MouseClicked(evt);
+            }
+        });
 
         btVoltar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
         btVoltar2.setText("Voltar");
@@ -184,7 +189,7 @@ public class FRUpDel extends javax.swing.JFrame {
                         .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtEmail1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSenha1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtRSenha, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
@@ -230,7 +235,7 @@ public class FRUpDel extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,6 +287,7 @@ public class FRUpDel extends javax.swing.JFrame {
          txtEmail1.setText(usu.getEmailUsu());
          txtDataNasc.setText(usu.getDataNascUsu());
          txtSenha.setText(usu.getSenhaUsu());
+         txtRSenha.setText(usu.getSenhaUsu());
          chkAtivo.setSelected(usu.isAtivoUsu() == 1);
          
     }//GEN-LAST:event_formWindowActivated
@@ -326,7 +332,7 @@ public class FRUpDel extends javax.swing.JFrame {
             return false;
         }
         
-        if(!new String(senha).equals(new String(txtSenha1.getPassword()))){
+        if(!new String(senha).equals(new String(txtRSenha.getPassword()))){
             JOptionPane.showMessageDialog(null, "As senhas não condiz");
             return false;
         }
@@ -353,6 +359,18 @@ public class FRUpDel extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btAlterarMouseClicked
+
+    private void btExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExcluir2MouseClicked
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o usuário?",
+                "Confirmação", JOptionPane.YES_NO_OPTION);
+       
+        if(resposta == JOptionPane.YES_OPTION){
+            UsuarioController controller = new UsuarioController();
+        if(controller.excluirUsuario(pkUsuario)){
+             this.dispose();
+            }
+        }
+    }//GEN-LAST:event_btExcluir2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -408,7 +426,7 @@ public class FRUpDel extends javax.swing.JFrame {
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextField txtEmail1;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JPasswordField txtRSenha;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JPasswordField txtSenha1;
     // End of variables declaration//GEN-END:variables
 }

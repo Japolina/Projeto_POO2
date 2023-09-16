@@ -39,5 +39,9 @@ public class UsuarioController {
      public boolean alterarUsuario(Usuario u){
          return usuarioDAO.alterarUsuario(u);
      }
+     
+     public boolean excluirUsuario(int pkusuario){
+         return usuarioDAO.excluirUsuario(pkusuario);
+     }
  }
     
