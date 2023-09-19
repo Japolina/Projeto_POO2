@@ -13,12 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author aluno.saolucas
  */
-public class FRCadUsu extends javax.swing.JFrame {
+public class FRCadUsu extends javax.swing.JDialog {
 
     /**
-     * Creates new form FRCadUsu1
+     * Creates new form FRCadUsu_
      */
-    public FRCadUsu() {
+    public FRCadUsu(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -51,15 +52,18 @@ public class FRCadUsu extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("[ULBRA] - Cadastro");
 
-        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+        jPanel1.setBackground(new java.awt.Color(84, 84, 84));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/user.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/iconAdd.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cadastro de Usuários");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nome");
 
         txtSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -71,7 +75,8 @@ public class FRCadUsu extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("E-mail");
 
         txtDataNasc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -81,7 +86,8 @@ public class FRCadUsu extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data de Nascimento");
 
         txtEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -91,17 +97,21 @@ public class FRCadUsu extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Confirmar Senha");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Senha");
 
         txtSenha1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Ativo");
 
+        chkAtivo.setBackground(new java.awt.Color(84, 84, 84));
         chkAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAtivoActionPerformed(evt);
@@ -129,7 +139,7 @@ public class FRCadUsu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +172,7 @@ public class FRCadUsu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,10 +245,6 @@ public class FRCadUsu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAtivoActionPerformed
 
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btCancelarActionPerformed
-    
     private boolean verificarCampos(){
         if(txtNome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
@@ -280,18 +286,22 @@ public class FRCadUsu extends javax.swing.JFrame {
     }
     
     private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
-         if(!verificarCampos()){
+        if(!verificarCampos()){
             return;
-         }
-         
+        }
+
         UsuarioController controller = new UsuarioController();
         String senha = new String (txtSenha.getPassword());
-            if(controller.adicionarUsuario(txtNome.getText(),txtEmail.getText(),
-                    senha, txtDataNasc.getText(), Utils.salvarBoolean(chkAtivo.isSelected()))){
-                this.dispose();
-            
+        if(controller.adicionarUsuario(txtNome.getText(),txtEmail.getText(),
+            senha, txtDataNasc.getText(), Utils.salvarBoolean(chkAtivo.isSelected()))){
+        this.dispose();
+
         }
     }//GEN-LAST:event_btSalvarMouseClicked
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,10 +331,17 @@ public class FRCadUsu extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRCadUsu().setVisible(true);
+                FRCadUsu dialog = new FRCadUsu(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

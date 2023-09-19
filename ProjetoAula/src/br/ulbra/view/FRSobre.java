@@ -13,12 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author aluno.saolucas
  */
-public class FRSobre extends javax.swing.JFrame {
+public class FRSobre extends javax.swing.JDialog {
 
     /**
-     * Creates new form FRSobre1
+     * Creates new form FRSobre_
      */
-    public FRSobre() {
+    public FRSobre(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -41,7 +42,8 @@ public class FRSobre extends javax.swing.JFrame {
         btGithub = new javax.swing.JButton();
         btVoltar2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("[ULBRA] - Sobre");
 
         jPanel1.setBackground(new java.awt.Color(84, 84, 84));
 
@@ -101,7 +103,7 @@ public class FRSobre extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jLabel1)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +129,9 @@ public class FRSobre extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,10 +183,17 @@ public class FRSobre extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRSobre().setVisible(true);
+                FRSobre dialog = new FRSobre(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
