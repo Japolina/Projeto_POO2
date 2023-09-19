@@ -14,16 +14,16 @@ import javax.swing.JOptionPane;
  *
  * @author aluno.saolucas
  */
-public class FRUpDel extends javax.swing.JFrame {
+public class FRUpDel extends javax.swing.JDialog {
 
     /**
-     * Creates new form FRUpDel
+     * Creates new form FRUpDel_
      */
-    public FRUpDel() {
+    public FRUpDel(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
     private int pkUsuario;
     
     public void setPkUsuario(int pkUsuario){
@@ -61,20 +61,23 @@ public class FRUpDel extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("[ULBRA] - Alterar Usuário");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+        jPanel1.setBackground(new java.awt.Color(84, 84, 84));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/userconfig.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/iconP.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuários");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nome");
 
         txtSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -86,7 +89,8 @@ public class FRUpDel extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("E-mail");
 
         txtDataNasc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -96,7 +100,8 @@ public class FRUpDel extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data de Nascimento");
 
         txtEmail1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -106,17 +111,21 @@ public class FRUpDel extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Confirmar Senha");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Senha");
 
         txtRSenha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Ativo");
 
+        chkAtivo.setBackground(new java.awt.Color(84, 84, 84));
         chkAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAtivoActionPerformed(evt);
@@ -155,7 +164,8 @@ public class FRUpDel extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Codigo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,7 +175,7 @@ public class FRUpDel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel9)
@@ -248,7 +258,9 @@ public class FRUpDel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,30 +287,6 @@ public class FRUpDel extends javax.swing.JFrame {
     private void chkAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAtivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAtivoActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-         
-         UsuarioController controller = new UsuarioController();
-         Usuario usu = controller.readForPk(pkUsuario);
-         
-         String codigo = String.valueOf(usu.getPkUsuario());
-         txtCodigo.setText(codigo);
-         txtNome.setText(usu.getNomeUsu());
-         txtEmail1.setText(usu.getEmailUsu());
-         txtDataNasc.setText(usu.getDataNascUsu());
-         txtSenha.setText(usu.getSenhaUsu());
-         txtRSenha.setText(usu.getSenhaUsu());
-         chkAtivo.setSelected(usu.isAtivoUsu() == 1);
-         
-    }//GEN-LAST:event_formWindowActivated
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    private void btVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar2MouseClicked
-        this.dispose();
-    }//GEN-LAST:event_btVoltar2MouseClicked
 
     private boolean verificarCampos(){
         if(txtNome.getText().equals("")){
@@ -339,11 +327,29 @@ public class FRUpDel extends javax.swing.JFrame {
 
         return true;
     }
+    
+    private void btExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExcluir2MouseClicked
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o usuário?",
+            "Confirmação", JOptionPane.YES_NO_OPTION);
+
+        if(resposta == JOptionPane.YES_OPTION){
+            UsuarioController controller = new UsuarioController();
+            if(controller.excluirUsuario(pkUsuario)){
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_btExcluir2MouseClicked
+
+    
+    private void btVoltar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar2MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btVoltar2MouseClicked
+
     private void btAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlterarMouseClicked
         if(!verificarCampos()){
             return;
-         }
-         
+        }
+
         UsuarioController controller = new UsuarioController();
         String senha = new String (txtSenha.getPassword());
         Usuario usuario = new Usuario();
@@ -353,24 +359,30 @@ public class FRUpDel extends javax.swing.JFrame {
         usuario.setDataNascUsu(txtDataNasc.getText());
         usuario.setAtivoUsu(Utils.salvarBoolean(chkAtivo.isSelected()));
         usuario.setSenhaUsu(senha);
-        
-            if(controller.alterarUsuario(usuario)){
-                this.dispose();
-            
+
+        if(controller.alterarUsuario(usuario)){
+            this.dispose();
+
         }
     }//GEN-LAST:event_btAlterarMouseClicked
 
-    private void btExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExcluir2MouseClicked
-        int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o usuário?",
-                "Confirmação", JOptionPane.YES_NO_OPTION);
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       UsuarioController controller = new UsuarioController();
+        Usuario usu = controller.readForPk(pkUsuario);
        
-        if(resposta == JOptionPane.YES_OPTION){
-            UsuarioController controller = new UsuarioController();
-        if(controller.excluirUsuario(pkUsuario)){
-             this.dispose();
-            }
-        }
-    }//GEN-LAST:event_btExcluir2MouseClicked
+        String codigo = String.valueOf(usu.getPkUsuario());
+        txtCodigo.setText(codigo);
+        txtNome.setText(usu.getNomeUsu());
+        txtEmail1.setText(usu.getEmailUsu());
+        txtDataNasc.setText(usu.getDataNascUsu());
+        txtSenha.setText(usu.getSenhaUsu());
+        txtRSenha.setText(usu.getSenhaUsu());
+        chkAtivo.setSelected(usu.isAtivoUsu() == 1);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -398,11 +410,19 @@ public class FRUpDel extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FRUpDel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRUpDel().setVisible(true);
+                FRUpDel dialog = new FRUpDel(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

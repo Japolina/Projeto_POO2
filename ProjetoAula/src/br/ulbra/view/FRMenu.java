@@ -157,15 +157,15 @@ public class FRMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadJogosActionPerformed
-        new FRCadJogos().setVisible(true);
+        new FRCadJogos(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_miCadJogosActionPerformed
 
     private void miCadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadUsuarioActionPerformed
-        new FRCadUsu().setVisible(true);
+        new FRCadUsu(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_miCadUsuarioActionPerformed
 
     private void conUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conUsuarioActionPerformed
-        new FRConsu().setVisible(true);
+        new FRConsu(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_conUsuarioActionPerformed
 
     private void miSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSairActionPerformed
@@ -173,7 +173,7 @@ public class FRMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miSairActionPerformed
 
     private void miSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSobreActionPerformed
-        new FRSobre().setVisible(true);
+        new FRSobre(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_miSobreActionPerformed
 
     /**
