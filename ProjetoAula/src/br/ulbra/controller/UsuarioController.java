@@ -28,8 +28,8 @@ public class UsuarioController {
         return usuarioDAO.adicionarUsuario(nome, email, senha, datan, ativo);
     }
     
-    public List<Usuario> readForDesc (String desc){
-        return usuarioDAO.readForDesc(desc);
+    public List<Usuario> readForDesc (int tipo, String desc){
+        return usuarioDAO.readForDesc(tipo, desc);
     }
     
     public Usuario readForPk (int pk){

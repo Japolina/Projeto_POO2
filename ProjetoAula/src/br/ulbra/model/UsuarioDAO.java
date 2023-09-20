@@ -85,8 +85,14 @@ public class UsuarioDAO {
         return usuarios;
     }
     
-    public List<Usuario> readForDesc(String desc){
-        String sql = "SELECT * FROM tbusuario WHERE nomeusu LIKE ?";
+    public List<Usuario> readForDesc(int tipo, String desc){
+        String sql;
+        
+        if(tipo == 0 || tipo == 1)
+        sql = "SELECT * FROM tbusuario WHERE nomeusu LIKE ?";
+        else
+        sql = "SELECT * FROM tbusuario WHERE emailusu LIKE ?";
+        
         GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
         Connection con = gerenciador.getConexao();
         PreparedStatement stmt = null;
@@ -95,10 +101,14 @@ public class UsuarioDAO {
         
         try {
             stmt = con.prepareStatement(sql);
+            
+            if (tipo == 0 || tipo == 2)
+            stmt.setString(1, desc+"%");
+            else
             stmt.setString(1, "%"+desc+"%");
             
             rs = stmt.executeQuery();
-         
+            
             while (rs.next()){
                 
                 Usuario usuario = new Usuario();
