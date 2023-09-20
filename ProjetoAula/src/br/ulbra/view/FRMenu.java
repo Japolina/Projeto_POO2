@@ -54,7 +54,7 @@ public class FRMenu extends javax.swing.JFrame {
         miSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         conUsuario = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        conJogos = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         miSobre = new javax.swing.JMenuItem();
 
@@ -123,8 +123,13 @@ public class FRMenu extends javax.swing.JFrame {
         });
         jMenu2.add(conUsuario);
 
-        jMenuItem5.setText("Jogos");
-        jMenu2.add(jMenuItem5);
+        conJogos.setText("Jogos");
+        conJogos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conJogosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(conJogos);
 
         jMenuBar1.add(jMenu2);
 
@@ -176,6 +181,10 @@ public class FRMenu extends javax.swing.JFrame {
         new FRSobre(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_miSobreActionPerformed
 
+    private void conJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conJogosActionPerformed
+        new FRConJogos (this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_conJogosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -212,13 +221,13 @@ public class FRMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem conJogos;
     private javax.swing.JMenuItem conUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem miCadJogos;
     private javax.swing.JMenuItem miCadUsuario;
