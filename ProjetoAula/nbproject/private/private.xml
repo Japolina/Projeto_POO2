@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/view/FRMenu.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/view/FRUpDel.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/view/FRCadJogos.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/model/UsuarioDAO.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/view/FRConsu.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/controller/UsuarioController.java</file>
-            <file>file:/C:/Users/aluno.saolucas/Documents/GitHub/Projeto_POO2/ProjetoAula/src/br/ulbra/view/FRSobre.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/model/GerenciadorConexao.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/model/UsuarioDAO.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/model/Jogo.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/controller/JogoController.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/model/JogoDAO.java</file>
+            <file>file:/C:/Users/s.lucas.DESKTOP-RVCU517/Documents/NetBeansProjects/Projeto_POO2/Projeto_POO2/ProjetoAula/src/br/ulbra/model/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

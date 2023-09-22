@@ -5,8 +5,8 @@
  */
 package br.ulbra.view;
 
-import br.ulbra.controller.UsuarioController;
-import br.ulbra.model.Usuario;
+import br.ulbra.controller.JogoController;
+import br.ulbra.model.Jogo;
 import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,8 +22,8 @@ public class FRConJogos extends javax.swing.JDialog {
     public FRConJogos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +87,7 @@ public class FRConJogos extends javax.swing.JDialog {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Cod", "Nome", "E-mail", "Data Nasc.", "Ativo"
+                "Cod", "Nome", "Gênero", "Data Lan.", "Classifi."
             }
         ));
         tabela.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -105,7 +105,12 @@ public class FRConJogos extends javax.swing.JDialog {
             }
         });
 
-        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome iniciando", "Nome contendo", "Email iniciando", "Email contendo" }));
+        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome iniciando", "Nome contendo", "Gênero", "Classificação" }));
+        cbFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbFiltroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,9 +128,8 @@ public class FRConJogos extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btPesquisar))
                             .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,13 +186,14 @@ public class FRConJogos extends javax.swing.JDialog {
     private void pesquisar(){
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setNumRows(0);
-        UsuarioController controller = new UsuarioController ();
-        for (Usuario usu : controller.readForDesc(cbFiltro.getSelectedIndex(), txtFiltro.getText())){
-            Object[] linha = {usu.getPkUsuario()
-                    , usu.getNomeUsu()
-                    , usu.getEmailUsu()
-                    , usu.getDataNascUsu()
-                    , usu.ativoToString()};
+        JogoController controller = new JogoController ();
+        for (Jogo jg: controller.readForDesc(cbFiltro.getSelectedIndex(), txtFiltro.getText())){
+            Object[] linha = {jg.getPk_jogo()
+                    , jg.getNomeJogo()
+                    , jg.getGeneroJogo()
+                    , jg.getProdutoraJogo()
+                    , jg.getDataLanJogo()
+                    , jg.getClassfiJogo()};
             modelo.addRow(linha);
         }
     }
@@ -201,19 +206,24 @@ public class FRConJogos extends javax.swing.JDialog {
     private void btPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btPesquisarMouseClicked
         pesquisar();
     }//GEN-LAST:event_btPesquisarMouseClicked
-
+    
+    
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
         if(tabela.getSelectedRow() != - 1){
             int pk = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
-            FRUpDel telaUPD = new FRUpDel(null, rootPaneCheckingEnabled);
-            telaUPD.setPkUsuario(pk);
-            telaUPD.setVisible(true);
+            FRTelaJogo telaJogo = new FRTelaJogo(null, rootPaneCheckingEnabled);
+            telaJogo.setPkJogo(pk);
+            telaJogo.setVisible(true);
         }
     }//GEN-LAST:event_tabelaMouseClicked
 
     private void btVoltar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar3MouseClicked
         this.dispose();
     }//GEN-LAST:event_btVoltar3MouseClicked
+
+    private void cbFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbFiltroActionPerformed
 
     /**
      * @param args the command line arguments

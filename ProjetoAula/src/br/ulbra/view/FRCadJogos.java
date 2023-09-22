@@ -5,6 +5,14 @@
  */
 package br.ulbra.view;
 
+import br.ulbra.controller.JogoController;
+import br.ulbra.utils.Utils;
+import java.io.File;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno.saolucas
@@ -37,13 +45,15 @@ public class FRCadJogos extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txtGenero = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtNome1 = new javax.swing.JTextField();
+        txtProdutora = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtNome2 = new javax.swing.JTextField();
+        txtDataLan = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtNome3 = new javax.swing.JTextField();
+        txtClassfi = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
+        btEscolherImagem = new javax.swing.JButton();
+        lbFoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("[ULBRA] - Cadastro de Jogos");
@@ -82,10 +92,10 @@ public class FRCadJogos extends javax.swing.JDialog {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Produtora");
 
-        txtNome1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtProdutora.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtProdutora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtProdutoraActionPerformed(evt);
             }
         });
 
@@ -93,10 +103,10 @@ public class FRCadJogos extends javax.swing.JDialog {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Data de Lançamento");
 
-        txtNome2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtNome2.addActionListener(new java.awt.event.ActionListener() {
+        txtDataLan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtDataLan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome2ActionPerformed(evt);
+                txtDataLanActionPerformed(evt);
             }
         });
 
@@ -104,10 +114,10 @@ public class FRCadJogos extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Classificação Indicativa");
 
-        txtNome3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtNome3.addActionListener(new java.awt.event.ActionListener() {
+        txtClassfi.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtClassfi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome3ActionPerformed(evt);
+                txtClassfiActionPerformed(evt);
             }
         });
 
@@ -127,31 +137,45 @@ public class FRCadJogos extends javax.swing.JDialog {
             }
         });
 
+        btEscolherImagem.setText("Escolher Imagem");
+        btEscolherImagem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btEscolherImagemMouseClicked(evt);
+            }
+        });
+
+        lbFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2))
-                    .addComponent(txtNome)
-                    .addComponent(jLabel4)
-                    .addComponent(txtGenero)
-                    .addComponent(jLabel5)
-                    .addComponent(txtNome1)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNome2)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNome3))
+                        .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel3)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(27, 27, 27)
+                            .addComponent(jLabel2))
+                        .addComponent(txtNome)
+                        .addComponent(jLabel4)
+                        .addComponent(txtGenero)
+                        .addComponent(jLabel5)
+                        .addComponent(txtProdutora)
+                        .addComponent(jLabel6)
+                        .addComponent(txtDataLan)
+                        .addComponent(jLabel7)
+                        .addComponent(txtClassfi)))
                 .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,7 +187,7 @@ public class FRCadJogos extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,16 +198,23 @@ public class FRCadJogos extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtProdutora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addComponent(txtClassfi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -214,25 +245,103 @@ public class FRCadJogos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroActionPerformed
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    private void txtProdutoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtProdutoraActionPerformed
 
-    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
+    private void txtDataLanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataLanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome2ActionPerformed
+    }//GEN-LAST:event_txtDataLanActionPerformed
 
-    private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
+    private void txtClassfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClassfiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome3ActionPerformed
-
+    }//GEN-LAST:event_txtClassfiActionPerformed
+    
+    private boolean verificarCampos(){
+        if(lbFoto.getIcon() == null){
+            JOptionPane.showMessageDialog(null, "Campo 'Foto' em branco");
+            return false;
+        }
+        if(txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
+            return false;
+        }
+        if(!txtNome.getText().matches("^[\\p{L} ]+$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
+            return false;
+        }
+        if(txtGenero.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Gênero' está vázio");
+            return false;
+        }
+        if(!txtGenero.getText().matches("^[\\p{L} ]+$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Gênero' possui caracteres inválidos");
+            return false;
+        }
+        if(txtProdutora.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Produtora' está vázio");
+            return false;
+        }
+        if(!txtProdutora.getText().matches("^^[\\p{L} ]+$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Produtora' possui caracteres inválidos");
+            return false;
+        }
+        if(txtDataLan.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Data Lançamento' está vázio");
+            return false;
+        }
+        if(!txtDataLan.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")){
+            JOptionPane.showMessageDialog(null, "Campo 'Data Lançamento' possui caracteres inválidos"
+                    +"\n\nEx: 01/01/2000");
+            return false;
+        }
+        if(txtClassfi.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Classificação' está vázio");
+            return false;
+        }
+        if(!txtClassfi.getText().matches("^[{+}0-9]{3}")){
+            JOptionPane.showMessageDialog(null, "Campo 'Classificação' possui caracteres inválidos");
+            return false;
+        }
+       
+        return true;
+    }
+    
+    
     private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
-        
+        if(!verificarCampos()){
+            return;
+        }
+
+        JogoController controller = new JogoController();
+        if(controller.adicionarJogo(txtNome.getText(),txtGenero.getText(),
+                txtProdutora.getText(), txtDataLan.getText(), txtClassfi.getText(),
+                lbFoto.getIcon())){
+        this.dispose();
+
+        }
     }//GEN-LAST:event_btSalvarMouseClicked
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void btEscolherImagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEscolherImagemMouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Escolha um arquivo");
+        
+        int returnValue = fileChooser.showOpenDialog(null);
+        
+        if(returnValue == JFileChooser.APPROVE_OPTION){
+            File arquivo = fileChooser.getSelectedFile();
+            Icon icon = Utils.fileParaIcon(arquivo);
+            
+            ImageIcon iconRedimensionado = Utils.redimensionarIcon (
+            icon, 200, 300);
+            
+            lbFoto.setIcon(iconRedimensionado);
+        }
+    }//GEN-LAST:event_btEscolherImagemMouseClicked
 
     /**
      * @param args the command line arguments
@@ -279,6 +388,7 @@ public class FRCadJogos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btEscolherImagem;
     private javax.swing.JButton btSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -288,10 +398,11 @@ public class FRCadJogos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbFoto;
+    private javax.swing.JTextField txtClassfi;
+    private javax.swing.JTextField txtDataLan;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome1;
-    private javax.swing.JTextField txtNome2;
-    private javax.swing.JTextField txtNome3;
+    private javax.swing.JTextField txtProdutora;
     // End of variables declaration//GEN-END:variables
 }
