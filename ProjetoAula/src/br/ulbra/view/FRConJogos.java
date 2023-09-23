@@ -213,6 +213,7 @@ public class FRConJogos extends javax.swing.JDialog {
             int pk = Integer.parseInt(tabela.getValueAt(tabela.getSelectedRow(), 0).toString());
             FRTelaJogo telaJogo = new FRTelaJogo(null, rootPaneCheckingEnabled);
             telaJogo.setPkJogo(pk);
+            telaJogo.carregarJogo();
             telaJogo.setVisible(true);
         }
     }//GEN-LAST:event_tabelaMouseClicked
