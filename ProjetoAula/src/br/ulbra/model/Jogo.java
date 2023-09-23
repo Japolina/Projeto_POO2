@@ -1,6 +1,8 @@
 
 package br.ulbra.model;
 
+import javax.swing.Icon;
+
 /**
  *
  * @author Érica Yasmin
@@ -12,6 +14,17 @@ public class Jogo {
     private String produtoraJogo;
     private String dataLanJogo;
     private String classfiJogo;
+    private Icon imagemJogo;
+    
+    
+    public Icon getImagemJogo() {
+        return imagemJogo;
+    }
+
+    public void setImagemJogo(Icon imagemJogo) {
+        this.imagemJogo = imagemJogo;
+    }
+   
 
     public int getPk_jogo() {
         return pk_jogo;

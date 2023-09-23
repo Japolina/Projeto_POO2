@@ -1,8 +1,12 @@
 
 package br.ulbra.model;
 
+import br.ulbra.utils.Utils;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -25,27 +30,32 @@ public class JogoDAO {
     public JogoDAO() {
     this.gerenciador = GerenciadorConexao.getInstancia();
     }
-    public boolean adicionarJogo(String nome, String genero, String produtora, String datalan, String classfi
-            ,Icon icone){
+    public boolean adicionarJogo(Jogo j){
         String sql = "INSERT into TBJOGOS(nomeJogo, generoJogo, produtoraJogo, dataLanJogo, classfiJogo"
                 + ", imagemJogo)"
                 + " VALUES (?,?,?,?,?, ?)";
 
     try {
+        byte[] iconBytes = Utils.iconToBytes(j.getImagemJogo());
+        
     PreparedStatement stmt = gerenciador.getConexao().prepareStatement(sql);
-    stmt.setString(1, nome);
-    stmt.setString(2, genero);
-    stmt.setString(3, produtora);
-    stmt.setString(4, datalan);
-    stmt.setString(5, classfi);
+    stmt.setString(1, j.getNomeJogo());
+    stmt.setString(2, j.getGeneroJogo());
+    stmt.setString(3, j.getProdutoraJogo());
+    stmt.setString(4, j.getDataLanJogo());
+    stmt.setString(5, j.getClassfiJogo());
+    stmt.setBytes(6, iconBytes);
     stmt.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Jogo: " + nome + " inserido com sucesso!");
+    JOptionPane.showMessageDialog(null, "Jogo: " + j.getNomeJogo() + " inserido com sucesso!");
     return true;
 } catch (SQLException e){
+    JOptionPane.showMessageDialog(null, "ERRO: " + e.getMessage());   
+        }catch (IOException e){
     JOptionPane.showMessageDialog(null, "ERRO: " + e.getMessage());   
         }
     return false;
     }
+    
     
     
     public List<Jogo> read(){
@@ -142,6 +152,12 @@ public class JogoDAO {
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
+                
+                byte[] bytes = rs.getBytes("imagemJogo");
+                ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+                BufferedImage imagem = ImageIO.read(bis);
+                
+                jogo.setImagemJogo(new ImageIcon(imagem));
             }
         }catch (SQLException ex){
             Logger.getLogger(JogoDAO.class.getName()).log(Level.SEVERE,null, ex);
@@ -150,6 +166,7 @@ public class JogoDAO {
         }
         return jogo;
     }
+    
     public static Icon fileParaIcon(File file){
         ImageIcon icon = new ImageIcon(file.getAbsolutePath());
         return icon;
@@ -161,4 +178,57 @@ public class JogoDAO {
         largura, altura, Image.SCALE_SMOOTH);
         return new ImageIcon(novaImagem);
     }
+    
+    public boolean alterarJogo(Jogo j){
+            GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
+            Connection con = gerenciador.getConexao();
+            PreparedStatement stmt = null;
+            
+            try {
+                
+                byte[] iconBytes = Utils.iconToBytes(j.getImagemJogo());
+                
+                stmt = con.prepareStatement("UPDATE tbjogo SET nomejogo = ?,"
+                +" generojogo = ?, produtorajogo = ?, datalanjogo = ?, classfijogo = ?"
+                        + ", imagemjogo = ? WHERE pk_jogo = ?");
+            stmt.setString(1, j.getNomeJogo());
+            stmt.setString(2, j.getGeneroJogo());
+            stmt.setString(3, j.getProdutoraJogo());
+            stmt.setString(4, j.getDataLanJogo());
+            stmt.setString(5, j.getClassfiJogo());
+            stmt.setInt(6, j.getPk_jogo());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            return true;
+            }catch (SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+            }finally {
+                GerenciadorConexao.closeConnection(con, stmt);
+            }
+            return false;
+        }
+    
+    public boolean excluirJogo(int pkjogo){
+            GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
+            Connection con = gerenciador.getConexao();
+            PreparedStatement stmt = null;
+            
+            try {
+                stmt = con.prepareStatement("DELETE FROM tbjogos WHERE pk_jogo = ?");
+            
+            stmt.setInt(1, pkjogo);
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
+            return true;
+            }catch (SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro ao excluir: " + ex);
+            }finally {
+                GerenciadorConexao.closeConnection(con, stmt);
+            }
+            return false;
+        }
 }

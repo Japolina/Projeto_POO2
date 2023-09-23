@@ -3,8 +3,6 @@ package br.ulbra.controller;
 
 import br.ulbra.model.Jogo;
 import br.ulbra.model.JogoDAO;
-import com.sun.istack.internal.logging.Logger;
-import java.io.IOException;
 import java.util.List;
 import javax.swing.Icon;
 
@@ -18,23 +16,21 @@ public class JogoController {
     public JogoController(){
         jogoDAO = new JogoDAO();
     }
-    public boolean adicionarJogo(String nome, String genero, String produtora, String datalan, String classfi,
-            Icon icone){
-        try {
-        return jogoDAO.adicionarJogo(nome, genero, produtora, datalan, classfi, icone);
+    public boolean adicionarJogo(Jogo j){
         
-        }catch (IOException ex){
-            
-            Logger.getLogger(
-                    JogoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
+        return jogoDAO.adicionarJogo(j);
     }
     
     public List<Jogo> readForDesc (int tipo, String desc){
         return jogoDAO.readForDesc(tipo, desc);
     }
-    public Jogo readForPk (int pk){
+    public Jogo readForPk (int pk) {
         return jogoDAO.readForPk(pk);
     }
+    public boolean excluirJogo(int pkjogo){
+         return jogoDAO.excluirJogo(pkjogo);
+     }
+    public boolean alterarJogo(Jogo j){
+         return jogoDAO.alterarJogo(j);
+     }
 }
