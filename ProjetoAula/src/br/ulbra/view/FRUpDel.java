@@ -353,12 +353,12 @@ public class FRUpDel extends javax.swing.JDialog {
         UsuarioController controller = new UsuarioController();
         String senha = new String (txtSenha.getPassword());
         Usuario usuario = new Usuario();
-        usuario.setPkUsuario(pkUsuario);
-        usuario.setNomeUsu(txtNome.getText());
-        usuario.setEmailUsu(txtEmail1.getText());
-        usuario.setDataNascUsu(txtDataNasc.getText());
-        usuario.setAtivoUsu(Utils.salvarBoolean(chkAtivo.isSelected()));
-        usuario.setSenhaUsu(senha);
+        usuario.setPk(pkUsuario);
+        usuario.setNome(txtNome.getText());
+        usuario.setEmail(txtEmail1.getText());
+        usuario.setDataNasc(txtDataNasc.getText());
+        usuario.setAtivo(Utils.salvarBoolean(chkAtivo.isSelected()));
+        usuario.setSenha(senha);
 
         if(controller.alterarUsuario(usuario)){
             this.dispose();
@@ -374,14 +374,14 @@ public class FRUpDel extends javax.swing.JDialog {
        UsuarioController controller = new UsuarioController();
         Usuario usu = controller.readForPk(pkUsuario);
        
-        String codigo = String.valueOf(usu.getPkUsuario());
+        String codigo = String.valueOf(usu.getPk());
         txtCodigo.setText(codigo);
-        txtNome.setText(usu.getNomeUsu());
-        txtEmail1.setText(usu.getEmailUsu());
-        txtDataNasc.setText(usu.getDataNascUsu());
-        txtSenha.setText(usu.getSenhaUsu());
-        txtRSenha.setText(usu.getSenhaUsu());
-        chkAtivo.setSelected(usu.isAtivoUsu() == 1);
+        txtNome.setText(usu.getNome());
+        txtEmail1.setText(usu.getEmail());
+        txtDataNasc.setText(usu.getDataNasc());
+        txtSenha.setText(usu.getSenha());
+        txtRSenha.setText(usu.getSenha());
+        chkAtivo.setSelected(usu.isAtivo() == 1);
     }//GEN-LAST:event_formWindowActivated
 
     /**

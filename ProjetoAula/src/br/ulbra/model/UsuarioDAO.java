@@ -69,11 +69,11 @@ public class UsuarioDAO {
                 
                 Usuario usuario = new Usuario();
                 
-                usuario.setPkUsuario(rs.getInt("pk_usuario"));
-                usuario.setEmailUsu(rs.getString("emailUsu"));
-                usuario.setSenhaUsu(rs.getString("senhaUsu"));
-                usuario.setDataNascUsu(rs.getString("dataNascUsu"));
-                usuario.setAtivoUsu(rs.getInt("ativoUsu"));
+                usuario.setPk(rs.getInt("pk_usuario"));
+                usuario.setEmail(rs.getString("emailUsu"));
+                usuario.setSenha(rs.getString("senhaUsu"));
+                usuario.setDataNasc(rs.getString("dataNascUsu"));
+                usuario.setAtivo(rs.getInt("ativoUsu"));
                 
                 usuarios.add(usuario);
             }
@@ -113,12 +113,12 @@ public class UsuarioDAO {
                 
                 Usuario usuario = new Usuario();
                 
-                usuario.setPkUsuario(rs.getInt("pk_usuario"));
-                usuario.setNomeUsu(rs.getString("nomeusu"));
-                usuario.setEmailUsu(rs.getString("emailusu"));
-                usuario.setSenhaUsu(rs.getString("senhausu"));
-                usuario.setDataNascUsu(rs.getString("datanascusu"));
-                usuario.setAtivoUsu(rs.getInt("ativousu"));
+                usuario.setPk(rs.getInt("pk_usuario"));
+                usuario.setNome(rs.getString("nomeusu"));
+                usuario.setEmail(rs.getString("emailusu"));
+                usuario.setSenha(rs.getString("senhausu"));
+                usuario.setDataNasc(rs.getString("datanascusu"));
+                usuario.setAtivo(rs.getInt("ativousu"));
                 usuarios.add(usuario);
             }
         }catch (SQLException ex){
@@ -145,12 +145,12 @@ public class UsuarioDAO {
          
             while (rs.next()){
                 
-                usuario.setPkUsuario(rs.getInt("pk_usuario"));
-                usuario.setNomeUsu(rs.getString("nomeusu"));
-                usuario.setEmailUsu(rs.getString("emailusu"));
-                usuario.setSenhaUsu(rs.getString("senhausu"));
-                usuario.setDataNascUsu(rs.getString("datanascusu"));
-                usuario.setAtivoUsu(rs.getInt("ativousu"));
+                usuario.setPk(rs.getInt("pk_usuario"));
+                usuario.setNome(rs.getString("nomeusu"));
+                usuario.setEmail(rs.getString("emailusu"));
+                usuario.setSenha(rs.getString("senhausu"));
+                usuario.setDataNasc(rs.getString("datanascusu"));
+                usuario.setAtivo(rs.getInt("ativousu"));
             }
         }catch (SQLException ex){
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null, ex);
@@ -169,12 +169,12 @@ public class UsuarioDAO {
                 stmt = con.prepareStatement("UPDATE tbusuario SET nomeusu = ?,"
                 +" emailusu = ?, senhausu = ?, datanascusu = ?, ativousu = ? "
                 +" WHERE pk_usuario = ?");
-            stmt.setString(1, u.getNomeUsu());
-            stmt.setString(2, u.getEmailUsu());
-            stmt.setString(3, u.getSenhaUsu());
-            stmt.setString(4, u.getDataNascUsu());
-            stmt.setInt(5, u.isAtivoUsu());
-            stmt.setInt(6, u.getPkUsuario());
+            stmt.setString(1, u.getNome());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getSenha());
+            stmt.setString(4, u.getDataNasc());
+            stmt.setInt(5, u.isAtivo());
+            stmt.setInt(6, u.getPk());
             
             stmt.executeUpdate();
             
@@ -188,7 +188,7 @@ public class UsuarioDAO {
             return false;
         }
         
-        public boolean excluirUsuario(int pkusuario){
+        public boolean excluirUsuario(int pk){
             GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
             Connection con = gerenciador.getConexao();
             PreparedStatement stmt = null;
@@ -196,7 +196,7 @@ public class UsuarioDAO {
             try {
                 stmt = con.prepareStatement("DELETE FROM tbusuario WHERE pk_usuario = ?");
             
-            stmt.setInt(1, pkusuario);
+            stmt.setInt(1, pk);
             
             stmt.executeUpdate();
             

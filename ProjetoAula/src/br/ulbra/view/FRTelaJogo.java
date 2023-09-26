@@ -7,10 +7,6 @@ package br.ulbra.view;
 
 import br.ulbra.controller.JogoController;
 import br.ulbra.model.Jogo;
-import java.applet.Applet;
-import java.awt.Scrollbar;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
 
 /**
  *
@@ -27,8 +23,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
     private int pkJogo;
-    
-    public void setPkJogo(int pkJogo){
+
+    public void setPkJogo(int pkJogo) {
         this.pkJogo = pkJogo;
     }
 
@@ -225,16 +221,12 @@ public class FRTelaJogo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
 
-    private void btVoltar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar3MouseClicked
-        this.dispose();
-    }//GEN-LAST:event_btVoltar3MouseClicked
-   
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        
+    public void carregarJogo() {
         JogoController controller = new JogoController();
         Jogo jg = controller.readForPk(pkJogo);
-       
+
         String codigo = String.valueOf(jg.getPk_jogo());
         txtCodigo.setText(codigo);
         txtNome.setText(jg.getNomeJogo());
@@ -243,7 +235,26 @@ public class FRTelaJogo extends javax.swing.JDialog {
         txtDataLan.setText(jg.getDataLanJogo());
         txtCodigo.setText(jg.getClassfiJogo());
         lbFoto.setIcon(jg.getImagemJogo());
-        
+
+    }
+    private void btVoltar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar3MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btVoltar3MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+         
+        JogoController controller = new JogoController();
+        Jogo jg = controller.readForPk(pkJogo);
+
+        String codigo = String.valueOf(jg.getPk_jogo());
+        txtCodigo.setText(codigo);
+        txtNome.setText(jg.getNomeJogo());
+        txtGenero.setText(jg.getGeneroJogo());
+        txtProdutora.setText(jg.getProdutoraJogo());
+        txtDataLan.setText(jg.getDataLanJogo());
+        txtCodigo.setText(jg.getClassfiJogo());
+        lbFoto.setIcon(jg.getImagemJogo());
+
     }//GEN-LAST:event_formWindowActivated
 
     private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
@@ -269,7 +280,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
     private void txtClassfi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClassfi1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClassfi1ActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
