@@ -55,7 +55,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         txtDataLan = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtClassfi = new javax.swing.JTextField();
-        btCancelar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
         btEscolherImagem = new javax.swing.JButton();
         lbFoto = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -64,6 +64,11 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         btAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(84, 84, 84));
 
@@ -128,11 +133,16 @@ public class FRUpDelJogo extends javax.swing.JDialog {
             }
         });
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
-        btCancelar.setText("Cancelar");
-        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
+        btVoltar.setText("Cancelar");
+        btVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btVoltarMouseClicked(evt);
+            }
+        });
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarActionPerformed(evt);
+                btVoltarActionPerformed(evt);
             }
         });
 
@@ -195,7 +205,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(txtCodigo)
                     .addComponent(txtNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +214,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
                 .addGap(197, 197, 197)
                 .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -254,7 +264,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
                         .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btExcluir2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69))
@@ -264,9 +274,9 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,20 +285,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void carregarJogo(){
-    JogoController controller = new JogoController();
-        Jogo jg = controller.readForPk(pkJogo);
-       
-        String codigo = String.valueOf(jg.getPk_jogo());
-        txtCodigo.setText(codigo);
-        txtNome.setText(jg.getNomeJogo());
-        txtGenero.setText(jg.getGeneroJogo());
-        txtProdutora.setText(jg.getProdutoraJogo());
-        txtDataLan.setText(jg.getDataLanJogo());
-        txtCodigo.setText(jg.getClassfiJogo());
-        lbFoto.setIcon(jg.getImagemJogo());
-                
-    }
+    
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
@@ -359,9 +356,9 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         return true;
     }
     
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btCancelarActionPerformed
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+
+    }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btEscolherImagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEscolherImagemMouseClicked
         JFileChooser fileChooser = new JFileChooser();
@@ -417,6 +414,14 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btAlterarMouseClicked
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+             
+    }//GEN-LAST:event_formWindowActivated
+
+    private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
+       this.dispose();
+    }//GEN-LAST:event_btVoltarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -461,9 +466,9 @@ public class FRUpDelJogo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
-    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btEscolherImagem;
     private javax.swing.JButton btExcluir2;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

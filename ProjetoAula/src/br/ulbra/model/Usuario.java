@@ -4,61 +4,30 @@ package br.ulbra.model;
  *
  * @author Érica Yasmin
  */
-public class Usuario {
-    private int pk_usuario;
-    private String nomeUsu;
-    private String emailUsu;
-    private String dataNascUsu;
-    private int ativoUsu;
-    private String senhaUsu;
+public class Usuario extends Pessoa {
     
-    public int getPkUsuario(){
-        return pk_usuario;
+    private String dataNasc;
+    private String senha;
+    
+    
+    public String getSenha(){
+        return senha;
     }
-    public void setPkUsuario(int pk_usuario){
-        this.pk_usuario = pk_usuario;
+    public void setSenha(String senha){
+        this.senha = senha;
     }
-    public String getNomeUsu(){
-        return nomeUsu;
+    public String getDataNasc (){
+        return dataNasc;
     }
-    public void setNomeUsu (String nomeUsu){
-        this.nomeUsu = nomeUsu;
-    }
-    public String getEmailUsu(){
-        return emailUsu;
-    }
-    public void setEmailUsu(String emailUsu){
-        this.emailUsu = emailUsu;
-    }
-    public String getSenhaUsu(){
-        return senhaUsu;
-    }
-    public void setSenhaUsu(String senhaUsu){
-        this.senhaUsu = senhaUsu;
-    }
-    public String getDataNascUsu (){
-        return dataNascUsu;
-    }
-    public void setDataNascUsu (String dataNascUsu){
-        this.dataNascUsu = dataNascUsu;
-    }
-    public int isAtivoUsu(){
-        return ativoUsu;
-    }
-    public void setAtivoUsu (int ativoUsu){
-        this.ativoUsu = ativoUsu;
-    }
-    public String ativoToString(){
-        if(this.ativoUsu == 1)
-            return "Ativo";
-        else
-            return "Inativo";
+    public void setDataNasc(String dataNasc){
+        this.dataNasc = dataNasc;
     }
     
     @Override
     public String toString(){
-        return "Usuario{" + "pk_usuario=" + pk_usuario + ", nomeUsu=" + nomeUsu 
-                + ", emailUsu=" + emailUsu + ", dataNascUsu=" + dataNascUsu
-                + ", ativoUsu=" + ativoUsu + ", senhaUsu=" + senhaUsu + '}';
+        return "Usuario{" + "pk_usuario=" + getPk() + ", nomeUsu=" + getNome() 
+                + ", emailUsu=" + getEmail() + ", dataNascUsu=" + getDataNasc()
+                + ", ativoUsu=" + isAtivo() + ", senhaUsu=" + getSenha() + '}';
     }
+    
 }
