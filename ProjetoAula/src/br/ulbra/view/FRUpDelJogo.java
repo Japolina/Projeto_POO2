@@ -26,6 +26,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
     public FRUpDelJogo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     private int pkJogo;
     
@@ -76,7 +77,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cadastrar Jogos");
+        jLabel2.setText("Atualização do Jogo");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,7 +206,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(txtCodigo)
                     .addComponent(txtNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,7 +286,13 @@ public class FRUpDelJogo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    public void dadosCadastro (Jogo j) {
+        JogoController controller = new JogoController();
+        if(controller.carregarJogo(pkJogo)){
+            this.dispose();
+
+        }
+    }
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
@@ -415,7 +422,17 @@ public class FRUpDelJogo extends javax.swing.JDialog {
     }//GEN-LAST:event_btAlterarMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-             
+        JogoController controller = new JogoController();
+        Jogo jg = controller.readForPk(pkJogo);
+
+        String codigo = String.valueOf(jg.getPk_jogo());
+        txtCodigo.setText(codigo);
+        txtNome.setText(jg.getNomeJogo());
+        txtGenero.setText(jg.getGeneroJogo());
+        txtProdutora.setText(jg.getProdutoraJogo());
+        txtDataLan.setText(jg.getDataLanJogo());
+        txtCodigo.setText(jg.getClassfiJogo());
+        lbFoto.setIcon(jg.getImagemJogo());
     }//GEN-LAST:event_formWindowActivated
 
     private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked

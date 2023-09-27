@@ -70,7 +70,7 @@
                       <Component id="txtCodigo" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Component id="lbFoto" min="-2" pref="200" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="btEscolherImagem" min="-2" pref="142" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastrar Jogos"/>
+            <Property name="text" type="java.lang.String" value="Atualiza&#xe7;&#xe3;o do Jogo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

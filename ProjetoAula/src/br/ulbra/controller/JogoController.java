@@ -4,7 +4,6 @@ package br.ulbra.controller;
 import br.ulbra.model.Jogo;
 import br.ulbra.model.JogoDAO;
 import java.util.List;
-import javax.swing.Icon;
 
 /**
  *
@@ -33,4 +32,7 @@ public class JogoController {
     public boolean alterarJogo(Jogo j){
          return jogoDAO.alterarJogo(j);
      }
+    public boolean carregarJogo (int pkjogo){
+        return jogoDAO.carregarJogo(pkjogo);
+    }
 }

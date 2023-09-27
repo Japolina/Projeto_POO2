@@ -24,6 +24,7 @@ public class FRConJogos extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -293,4 +294,5 @@ public class FRConJogos extends javax.swing.JDialog {
     private javax.swing.JTable tabela;
     private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
+
 }

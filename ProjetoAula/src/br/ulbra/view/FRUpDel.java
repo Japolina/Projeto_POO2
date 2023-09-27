@@ -25,6 +25,8 @@ public class FRUpDel extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
     private int pkUsuario;
+
+    
     
     public void setPkUsuario(int pkUsuario){
         this.pkUsuario = pkUsuario;
@@ -271,7 +273,7 @@ public class FRUpDel extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
