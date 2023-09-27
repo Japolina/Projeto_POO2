@@ -240,4 +240,34 @@ public class JogoDAO {
         }
         return false;
     }
+    public boolean carregarJogo (int pkjogo){
+        String sql = "SELECT * FROM tbjogos";
+        Connection con = gerenciador.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Jogo jogo = new Jogo();
+
+                jogo.setPk_Jogo(rs.getInt("pk_jogo"));
+                jogo.setGeneroJogo(rs.getString("generoJogo"));
+                jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
+                jogo.setDataLanJogo(rs.getString("dataLanJogo"));
+                jogo.setClassfiJogo(rs.getString("classfiJogo"));
+
+                stmt.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(JogoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            GerenciadorConexao.closeConnection(con, stmt, rs);
+        }
+        return false;
+    }
+           
 }
