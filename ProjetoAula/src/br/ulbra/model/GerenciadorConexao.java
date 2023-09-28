@@ -104,7 +104,6 @@ public class GerenciadorConexao {
 //produtoraJogo varchar(40) not null,
 //dataLanJogo varchar(10) not null,
 //classfiJogo varchar(3) not null,
-//imagemJogo blob(5242880)
-//
-// alter table tbjogos add descricaoJogo varchar(500) not null;
-//);
+//imagemJogo blob(5242880),
+//descricaoJogo varchar(1000) not null
+// );

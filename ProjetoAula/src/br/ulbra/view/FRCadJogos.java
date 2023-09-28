@@ -56,7 +56,8 @@ public class FRCadJogos extends javax.swing.JDialog {
         btEscolherImagem = new javax.swing.JButton();
         lbFoto = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("[ULBRA] - Cadastro de Jogos");
@@ -131,6 +132,11 @@ public class FRCadJogos extends javax.swing.JDialog {
                 btSalvarMouseClicked(evt);
             }
         });
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
         btCancelar.setText("Cancelar");
@@ -149,16 +155,20 @@ public class FRCadJogos extends javax.swing.JDialog {
 
         lbFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextArea.setColumns(20);
-        jTextArea.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jTextArea.setLineWrap(true);
-        jTextArea.setRows(5);
-        jTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDescricao.setColumns(20);
+        txtDescricao.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtDescricao.setLineWrap(true);
+        txtDescricao.setRows(5);
+        txtDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextAreaKeyPressed(evt);
+                txtDescricaoKeyPressed(evt);
             }
         });
-        jScrollPane2.setViewportView(jTextArea);
+        jScrollPane2.setViewportView(txtDescricao);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Descrição");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,16 +192,19 @@ public class FRCadJogos extends javax.swing.JDialog {
                     .addComponent(jLabel7)
                     .addComponent(txtClassfi))
                 .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,7 +217,9 @@ public class FRCadJogos extends javax.swing.JDialog {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel2)))
                 .addGap(49, 49, 49)
-                .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
@@ -282,7 +297,7 @@ public class FRCadJogos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
             return false;
         }
-        if(!txtNome.getText().matches("^[\\p{L} ]+[0-9]+$")){
+        if(!txtNome.getText().matches("^[a-zA-Z0-9]*$")){
             JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
             return false;
         }
@@ -319,6 +334,11 @@ public class FRCadJogos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Campo 'Classificação' possui caracteres inválidos");
             return false;
         }
+        
+        if(txtDescricao.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo 'Descrição' está vázio");
+            return false;
+        }
        
         return true;
     }
@@ -337,6 +357,7 @@ public class FRCadJogos extends javax.swing.JDialog {
         jogo.setProdutoraJogo(txtProdutora.getText());
         jogo.setDataLanJogo(txtDataLan.getText());
         jogo.setClassfiJogo(txtClassfi.getText());
+        jogo.setDescricaoJogo(txtDescricao.getText());
         jogo.setImagemJogo(lbFoto.getIcon());
         
         if(controller.adicionarJogo(jogo)){
@@ -365,9 +386,13 @@ public class FRCadJogos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btEscolherImagemMouseClicked
 
-    private void jTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaKeyPressed
+    private void txtDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescricaoKeyPressed
         
-    }//GEN-LAST:event_jTextAreaKeyPressed
+    }//GEN-LAST:event_txtDescricaoKeyPressed
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -423,12 +448,13 @@ public class FRCadJogos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea;
     private javax.swing.JLabel lbFoto;
     private javax.swing.JTextField txtClassfi;
     private javax.swing.JTextField txtDataLan;
+    private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtProdutora;
