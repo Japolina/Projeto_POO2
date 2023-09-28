@@ -89,7 +89,7 @@ public class Jogo {
     public String toString(){
         return "Jogo {"+ "pk_jogo="+pk_jogo+", nomeJogo="+nomeJogo+", generoJogo="+generoJogo
                 +", produtoraJogo="+produtoraJogo+", dataLanJogo="+dataLanJogo
-                +", classfiJogo="+classfiJogo + '}';
+                +", classfiJogo="+classfiJogo + ", descricaoJogo="+descricaoJogo + '}';
     }
 }
 //(nomeJogo, generoJogo, produtoraJogo, dataLanJogo, classfiJogo)

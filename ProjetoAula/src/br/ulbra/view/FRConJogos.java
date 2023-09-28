@@ -93,15 +93,27 @@ public class FRConJogos extends javax.swing.JDialog {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Cod", "Nome", "Gênero", "Data Lan.", "Classifi."
+                "Cod", "Nome", "Gênero", "Produtora", "Classifi."
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tabela);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setMinWidth(1);
+            tabela.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         btVoltar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
         btVoltar3.setText("Voltar");
@@ -111,7 +123,7 @@ public class FRConJogos extends javax.swing.JDialog {
             }
         });
 
-        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome iniciando", "Nome contendo", "Gênero", "Classificação" }));
+        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome iniciando", "Nome contendo", "Gênero", "Produtora" }));
         cbFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbFiltroActionPerformed(evt);
@@ -186,7 +198,7 @@ public class FRConJogos extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void txtFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFiltroActionPerformed
@@ -200,7 +212,6 @@ public class FRConJogos extends javax.swing.JDialog {
                     , jg.getNomeJogo()
                     , jg.getGeneroJogo()
                     , jg.getProdutoraJogo()
-                    , jg.getDataLanJogo()
                     , jg.getClassfiJogo()};
             modelo.addRow(linha);
         }

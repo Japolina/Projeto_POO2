@@ -32,7 +32,5 @@ public class JogoController {
     public boolean alterarJogo(Jogo j){
          return jogoDAO.alterarJogo(j);
      }
-    public boolean carregarJogo (int pkjogo){
-        return jogoDAO.carregarJogo(pkjogo);
-    }
+    
 }
