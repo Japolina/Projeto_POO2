@@ -15,6 +15,7 @@ public class Jogo {
     private String dataLanJogo;
     private String classfiJogo;
     private Icon imagemJogo;
+    private String descricaoJogo;
     
     
     public Icon getImagemJogo() {
@@ -74,6 +75,16 @@ public class Jogo {
         this.classfiJogo = classfiJogo;
     }
 
+    public String getDescricaoJogo() {
+        return descricaoJogo;
+    }
+
+    public void setDescricaoJogo(String descricaoJogo) {
+        this.descricaoJogo = descricaoJogo;
+    }
+    
+    
+    
     @Override
     public String toString(){
         return "Jogo {"+ "pk_jogo="+pk_jogo+", nomeJogo="+nomeJogo+", generoJogo="+generoJogo

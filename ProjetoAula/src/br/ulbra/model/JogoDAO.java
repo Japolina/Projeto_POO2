@@ -34,8 +34,8 @@ public class JogoDAO {
 
     public boolean adicionarJogo(Jogo j) {
         String sql = "INSERT into TBJOGOS(nomeJogo, generoJogo, produtoraJogo, dataLanJogo, classfiJogo"
-                + ", imagemJogo)"
-                + " VALUES (?,?,?,?,?, ?)";
+                + ", imagemJogo, descricaoJogo)"
+                + " VALUES (?,?,?,?,?, ?, ?)";
 
         try {
             byte[] iconBytes = Utils.iconToBytes(j.getImagemJogo());
@@ -47,6 +47,7 @@ public class JogoDAO {
             stmt.setString(4, j.getDataLanJogo());
             stmt.setString(5, j.getClassfiJogo());
             stmt.setBytes(6, iconBytes);
+            stmt.setString(7, j.getDescricaoJogo());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Jogo: " + j.getNomeJogo() + " inserido com sucesso!");
             return true;
@@ -60,7 +61,7 @@ public class JogoDAO {
         return false;
     }
 
-    public List<Jogo> read() {
+    public List<Jogo> read() throws IOException {
         String sql = "SELECT * FROM tbjogos";
         List<Jogo> jogos = new ArrayList<>();
 
@@ -76,10 +77,17 @@ public class JogoDAO {
                 Jogo jogo = new Jogo();
 
                 jogo.setPk_Jogo(rs.getInt("pk_jogo"));
+                jogo.setNomeJogo(rs.getString("nomeJogo"));
                 jogo.setGeneroJogo(rs.getString("generoJogo"));
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
+                
+                byte[] bytes = rs.getBytes("imagemJogo");
+                ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+                BufferedImage imagem = ImageIO.read(bis);
+
+                jogo.setImagemJogo(new ImageIcon(imagem));
 
                 jogos.add(jogo);
             }
@@ -197,7 +205,7 @@ public class JogoDAO {
 
             byte[] iconBytes = Utils.iconToBytes(j.getImagemJogo());
 
-            stmt = con.prepareStatement("UPDATE tbjogo SET nomejogo = ?,"
+            stmt = con.prepareStatement("UPDATE tbjogos SET nomejogo = ?,"
                     + " generojogo = ?, produtorajogo = ?, datalanjogo = ?, classfijogo = ?"
                     + ", imagemjogo = ? WHERE pk_jogo = ?");
             stmt.setString(1, j.getNomeJogo());
@@ -205,7 +213,8 @@ public class JogoDAO {
             stmt.setString(3, j.getProdutoraJogo());
             stmt.setString(4, j.getDataLanJogo());
             stmt.setString(5, j.getClassfiJogo());
-            stmt.setInt(6, j.getPk_jogo());
+            stmt.setBytes(6, iconBytes);
+            stmt.setInt(7, j.getPk_jogo());
 
             stmt.executeUpdate();
 
@@ -255,11 +264,12 @@ public class JogoDAO {
                 Jogo jogo = new Jogo();
 
                 jogo.setPk_Jogo(rs.getInt("pk_jogo"));
+                jogo.setNomeJogo(rs.getString("nomeJogo"));
                 jogo.setGeneroJogo(rs.getString("generoJogo"));
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
-
+                
                 stmt.executeUpdate();
             }
         } catch (SQLException ex) {
@@ -269,5 +279,5 @@ public class JogoDAO {
         }
         return false;
     }
-           
+      
 }

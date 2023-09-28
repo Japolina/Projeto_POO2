@@ -160,6 +160,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nome");
 
+        txtCodigo.setEditable(false);
         txtCodigo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,13 +287,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void dadosCadastro (Jogo j) {
-        JogoController controller = new JogoController();
-        if(controller.carregarJogo(pkJogo)){
-            this.dispose();
-
-        }
-    }
+   
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
@@ -322,7 +317,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
             return false;
         }
-        if(!txtNome.getText().matches("^[\\p{L} ]+$+ [0-9]")){
+        if(!txtNome.getText().matches("^[\\p{L} ]+[0-9]+$")){
             JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
             return false;
         }
@@ -330,7 +325,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Campo 'Gênero' está vázio");
             return false;
         }
-        if(!txtGenero.getText().matches("^[\\p{L} ]+$")){
+        if(!txtGenero.getText().matches("^[\\p{L} ]+.*[,].*+$")){
             JOptionPane.showMessageDialog(null, "Campo 'Gênero' possui caracteres inválidos");
             return false;
         }
@@ -404,9 +399,10 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         if(!verificarCampos()){
             return;
         }
-
+        
         JogoController controller = new JogoController();
         Jogo jogo = new Jogo();
+        
         jogo.setPk_Jogo(pkJogo);
         jogo.setNomeJogo(txtNome.getText());
         jogo.setGeneroJogo(txtGenero.getText());
@@ -416,12 +412,15 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         jogo.setImagemJogo(lbFoto.getIcon());
 
         if(controller.alterarJogo(jogo)){
-            this.dispose();
-
+        FRTelaJogo telaJogo = new FRTelaJogo(null, rootPaneCheckingEnabled);
+        
+        this.dispose();
+        telaJogo.setPkJogo(pkJogo);
+        telaJogo.setVisible(true);
         }
     }//GEN-LAST:event_btAlterarMouseClicked
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    public void carregar(){
         JogoController controller = new JogoController();
         Jogo jg = controller.readForPk(pkJogo);
 
@@ -431,8 +430,14 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         txtGenero.setText(jg.getGeneroJogo());
         txtProdutora.setText(jg.getProdutoraJogo());
         txtDataLan.setText(jg.getDataLanJogo());
-        txtCodigo.setText(jg.getClassfiJogo());
+        txtClassfi.setText(jg.getClassfiJogo());
         lbFoto.setIcon(jg.getImagemJogo());
+    }
+    
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+        
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
