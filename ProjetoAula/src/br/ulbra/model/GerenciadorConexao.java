@@ -99,12 +99,21 @@ public class GerenciadorConexao {
 //------------------ JOGOS ----------------------------
 //create table tbJogos (
 //pk_jogo int primary key auto_increment,
-//nomeJogo varchar(80) not null,
+//nomeJogo varchar(100) not null,
 //generoJogo varchar(30) not null,
 //produtoraJogo varchar(40) not null,
 //dataLanJogo varchar(10) not null,
 //classfiJogo varchar(3) not null,
-//imagemJogo blob(5242880)
+//imagemJogo blob(5242880),
+//descricaoJogo varchar(1000) not null
+// );
+
+//---------------texto jogo-----------------------
+// Resident evil 2
+//Resident Evil 2 Remake é o retorno do clássico da Capcom de PlayStation 1 para PS4, PC (Steam) e Xbox One com lançamento em 25 de janeiro. Leon e Clair estão de volta na história, assim como no original, porém novos elementos de jogabilidade e perspectiva de visão que começou a ser utilizada em Resident Evil 4 foram adicionados. Na análise a seguir, o jogo de terror assombra com gráficos realistas, zumbis inéditos, Mister X e uma Racoon City reformulada.
 //
-// alter table tbjogos add descricaoJogo varchar(500) not null;
-//);
+// Valorant
+//Valorant é um jogo FPS da Riot Games, a mesma desenvolvedora do League of Legends (LoL), disponível paradownload grátis no PC (Windows). O título conta com um elenco de personagens com habilidades específicas e mapas, onde o objetivo é ativar um bomba ou defender um território. Os times começam a partida com ataque ou defesa, e trocam de lado na décima segunda rodada. Vence a equipe que fizer 13 pontos primeiro, e os jogos têm até 24 rounds. O game tem uma economia parecida com a do CS:GO e disponibiliza diversos armamentos para compra no início de cada rodada. Veja miras (crosshair) de Valorant, com configurações de pro players para usar no jogo, neste tutorial. Os personagens têm habilidades específicas que também podem ser liberadas na loja. Confira melhores personagens de Valorant e suas habilidades para iniciantes.
+
+//Red Dead Redemption 2
+//A história se passa em 1899 em uma representação ficcional do oeste, meio-oeste e sul dos Estados Unidos e acompanha o fora da lei Arthur Morgan, que precisa lidar com o declínio do Velho Oeste e sobreviver à perseguição de forças governamentais, gangues rivais e outros adversários. Red Dead Redemption 2 é um jogo de faroeste de ação-aventura ambientado em um mundo aberto e jogado a partir de uma perspectiva de terceira e primeira pessoa, com componentes de singleplayer e multiplayer online. O jogo tem novas opções, ausentes no jogo anterior. 

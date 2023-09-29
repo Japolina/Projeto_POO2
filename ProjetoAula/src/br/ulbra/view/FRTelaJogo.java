@@ -7,14 +7,6 @@ package br.ulbra.view;
 
 import br.ulbra.controller.JogoController;
 import br.ulbra.model.Jogo;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.text.AbstractDocument;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
 
 /**
  *
@@ -62,9 +54,10 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         btAlterar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("[ULBRA] - Detalhes do Jogo");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -86,13 +79,16 @@ public class FRTelaJogo extends javax.swing.JDialog {
             }
         });
 
-        lbFoto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Gênero");
 
         txtGenero.setEditable(false);
+        txtGenero.setBackground(new java.awt.Color(84, 84, 84));
+        txtGenero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGenero.setForeground(new java.awt.Color(255, 255, 255));
         txtGenero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +101,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel6.setText("Produtora");
 
         txtProdutora.setEditable(false);
+        txtProdutora.setBackground(new java.awt.Color(84, 84, 84));
+        txtProdutora.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtProdutora.setForeground(new java.awt.Color(255, 255, 255));
         txtProdutora.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtProdutora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +116,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel7.setText("Data de Lançamento");
 
         txtDataLan.setEditable(false);
+        txtDataLan.setBackground(new java.awt.Color(84, 84, 84));
+        txtDataLan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDataLan.setForeground(new java.awt.Color(255, 255, 255));
         txtDataLan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtDataLan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +131,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel8.setText("ID");
 
         txtCodigo.setEditable(false);
+        txtCodigo.setBackground(new java.awt.Color(84, 84, 84));
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +142,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         });
 
         txtNome.setEditable(false);
+        txtNome.setBackground(new java.awt.Color(84, 84, 84));
+        txtNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +153,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         });
 
         txtClassfi1.setEditable(false);
+        txtClassfi1.setBackground(new java.awt.Color(84, 84, 84));
+        txtClassfi1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtClassfi1.setForeground(new java.awt.Color(255, 255, 255));
         txtClassfi1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtClassfi1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,11 +180,15 @@ public class FRTelaJogo extends javax.swing.JDialog {
             }
         });
 
-        jTextArea.setColumns(20);
-        jTextArea.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jTextArea.setLineWrap(true);
-        jTextArea.setRows(5);
-        jScrollPane2.setViewportView(jTextArea);
+        txtDescricao.setEditable(false);
+        txtDescricao.setBackground(new java.awt.Color(84, 84, 84));
+        txtDescricao.setColumns(20);
+        txtDescricao.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtDescricao.setForeground(new java.awt.Color(255, 255, 255));
+        txtDescricao.setLineWrap(true);
+        txtDescricao.setRows(5);
+        txtDescricao.setBorder(null);
+        jScrollPane2.setViewportView(txtDescricao);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,7 +218,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtDataLan, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(0, 0, Short.MAX_VALUE))
@@ -220,21 +235,20 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtClassfi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
                                 .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(67, 67, 67)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtClassfi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,8 +273,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 77, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,48 +285,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    public class JTextAreaComLimite extends JTextArea {
-    private int limiteDeCaracteres;
-
-    public JTextAreaComLimite(int rows, int columns, int limiteDeCaracteres) {
-        super(rows, columns);
-        this.limiteDeCaracteres = limiteDeCaracteres;
-        configurarLimitacao();
-    }
-
-    private void configurarLimitacao() {
-        AbstractDocument document = (AbstractDocument) getDocument();
-        document.setDocumentFilter(new DocumentFilter() {
-            @Override
-            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
-                String novoTexto = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
-
-                if (novoTexto.length() <= limiteDeCaracteres) {
-                    super.replace(fb, offset, length, text, attrs);
-                }
-            }
-        });
-    }
-
-    public void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("JTextArea com Limite de Caracteres");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-            int limiteDeCaracteres = 100;
-            JTextAreaComLimite textArea = new JTextAreaComLimite(10, 30, limiteDeCaracteres);
-            textArea.setLineWrap(true);
-            textArea.setWrapStyleWord(true);
-
-            frame.add(new JScrollPane(textArea));
-            frame.pack();
-            frame.setVisible(true);
-        });
-    }
-}
-
-    
+ 
     private void btVoltar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltar3MouseClicked
         this.dispose();
     }//GEN-LAST:event_btVoltar3MouseClicked
@@ -329,6 +302,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
         txtProdutora.setText(jg.getProdutoraJogo());
         txtDataLan.setText(jg.getDataLanJogo());
         txtClassfi1.setText(jg.getClassfiJogo());
+        txtDescricao.setText(jg.getDescricaoJogo());
         lbFoto.setIcon(jg.getImagemJogo());
 
     }//GEN-LAST:event_formWindowActivated
@@ -368,6 +342,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
         txtProdutora.setText(jg.getProdutoraJogo());
         txtDataLan.setText(jg.getDataLanJogo());
         txtClassfi1.setText(jg.getClassfiJogo());
+        txtDescricao.setText(jg.getDescricaoJogo());
         lbFoto.setIcon(jg.getImagemJogo());
     }
         
@@ -440,11 +415,11 @@ public class FRTelaJogo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea;
     private javax.swing.JLabel lbFoto;
     private javax.swing.JTextField txtClassfi1;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDataLan;
+    private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtProdutora;

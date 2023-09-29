@@ -82,6 +82,7 @@ public class JogoDAO {
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
+                jogo.setDescricaoJogo(rs.getString("descricaoJogo"));
                 
                 byte[] bytes = rs.getBytes("imagemJogo");
                 ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
@@ -102,10 +103,19 @@ public class JogoDAO {
     public List<Jogo> readForDesc(int tipo, String desc) {
         String sql;
 
-        if (tipo == 0 || tipo == 1) {
-            sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?";
-        } else {
-            sql = "SELECT * FROM tbjogos WHERE generojogo LIKE ?";
+        switch (tipo){
+            case 0: sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?"; 
+            break;
+            case 1: sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?"; 
+            break;
+            case 2: sql = "SELECT * FROM tbjogos WHERE generojogo LIKE ?"; 
+            break;
+            case 3: sql = "SELECT * FROM tbjogos WHERE produtorajogo LIKE ?"; 
+            break;
+            
+            
+            default: sql = " "; 
+            break;
         }
 
         GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
@@ -117,11 +127,13 @@ public class JogoDAO {
         try {
             stmt = con.prepareStatement(sql);
 
-            if (tipo == 0 || tipo == 2) {
-                stmt.setString(1, desc + "%");
+            if (tipo == 1 || tipo == 2) {
+                stmt.setString(1, "%"+desc + "%");
             } else {
-                stmt.setString(1, "%" + desc + "%");
+                stmt.setString(1, desc + "%");
             }
+            
+            
 
             rs = stmt.executeQuery();
 
@@ -135,6 +147,7 @@ public class JogoDAO {
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
+                jogo.setDescricaoJogo(rs.getString("descricaoJogo"));
                 
                 jogos.add(jogo);
             }
@@ -168,6 +181,7 @@ public class JogoDAO {
                 jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
                 jogo.setDataLanJogo(rs.getString("dataLanJogo"));
                 jogo.setClassfiJogo(rs.getString("classfiJogo"));
+                jogo.setDescricaoJogo(rs.getString("descricaoJogo"));
 
                 byte[] bytes = rs.getBytes("imagemJogo");
                 ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
@@ -207,14 +221,15 @@ public class JogoDAO {
 
             stmt = con.prepareStatement("UPDATE tbjogos SET nomejogo = ?,"
                     + " generojogo = ?, produtorajogo = ?, datalanjogo = ?, classfijogo = ?"
-                    + ", imagemjogo = ? WHERE pk_jogo = ?");
+                    + ", imagemjogo = ?, descricaoJogo = ? WHERE pk_jogo = ?");
             stmt.setString(1, j.getNomeJogo());
             stmt.setString(2, j.getGeneroJogo());
             stmt.setString(3, j.getProdutoraJogo());
             stmt.setString(4, j.getDataLanJogo());
             stmt.setString(5, j.getClassfiJogo());
             stmt.setBytes(6, iconBytes);
-            stmt.setInt(7, j.getPk_jogo());
+            stmt.setString(7, j.getDescricaoJogo());
+            stmt.setInt(8, j.getPk_jogo());
 
             stmt.executeUpdate();
 
@@ -249,35 +264,6 @@ public class JogoDAO {
         }
         return false;
     }
-    public boolean carregarJogo (int pkjogo){
-        String sql = "SELECT * FROM tbjogos";
-        Connection con = gerenciador.getConexao();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            stmt = con.prepareStatement(sql);
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-
-                Jogo jogo = new Jogo();
-
-                jogo.setPk_Jogo(rs.getInt("pk_jogo"));
-                jogo.setNomeJogo(rs.getString("nomeJogo"));
-                jogo.setGeneroJogo(rs.getString("generoJogo"));
-                jogo.setProdutoraJogo(rs.getString("produtoraJogo"));
-                jogo.setDataLanJogo(rs.getString("dataLanJogo"));
-                jogo.setClassfiJogo(rs.getString("classfiJogo"));
-                
-                stmt.executeUpdate();
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(JogoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            GerenciadorConexao.closeConnection(con, stmt, rs);
-        }
-        return false;
-    }
+    
       
 }
