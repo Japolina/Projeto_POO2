@@ -44,23 +44,34 @@ public class FRConJogos extends javax.swing.JDialog {
         tabela = new javax.swing.JTable();
         btVoltar3 = new javax.swing.JButton();
         cbFiltro = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("[ULBRA] - Consulta de Jogos");
+        setMinimumSize(new java.awt.Dimension(701, 676));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(84, 84, 84));
+        jPanel1.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/lupaP.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/jogosSearch.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(158, 19, 64, 64);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Consulta Jogos");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(240, 39, 274, 44);
 
+        txtFiltro.setBackground(new java.awt.Color(51, 51, 51));
+        txtFiltro.setForeground(new java.awt.Color(255, 255, 255));
         txtFiltro.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,19 +83,28 @@ public class FRConJogos extends javax.swing.JDialog {
                 txtFiltroKeyPressed(evt);
             }
         });
+        jPanel1.add(txtFiltro);
+        txtFiltro.setBounds(160, 176, 401, 28);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Filtro");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(107, 172, 35, 32);
 
-        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/searchMini.png"))); // NOI18N
+        btPesquisar.setBackground(new java.awt.Color(51, 51, 51));
+        btPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        btPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_lupa.png"))); // NOI18N
         btPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btPesquisarMouseClicked(evt);
             }
         });
+        jPanel1.add(btPesquisar);
+        btPesquisar.setBounds(573, 176, 54, 28);
 
         tabela.setBackground(new java.awt.Color(233, 233, 233));
+        tabela.setForeground(new java.awt.Color(0, 0, 0));
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -104,6 +124,8 @@ public class FRConJogos extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tabela.setGridColor(new java.awt.Color(102, 102, 102));
+        tabela.setSelectionBackground(new java.awt.Color(102, 102, 102));
         tabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaMouseClicked(evt);
@@ -115,86 +137,42 @@ public class FRConJogos extends javax.swing.JDialog {
             tabela.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
-        btVoltar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(107, 222, 523, 328);
+
+        btVoltar3.setBackground(new java.awt.Color(51, 51, 51));
+        btVoltar3.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_back.png"))); // NOI18N
         btVoltar3.setText("Voltar");
         btVoltar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btVoltar3MouseClicked(evt);
             }
         });
+        jPanel1.add(btVoltar3);
+        btVoltar3.setBounds(292, 568, 149, 55);
 
+        cbFiltro.setBackground(new java.awt.Color(0, 0, 0));
+        cbFiltro.setForeground(new java.awt.Color(255, 255, 255));
         cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome iniciando", "Nome contendo", "Gênero", "Produtora" }));
         cbFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbFiltroActionPerformed(evt);
             }
         });
+        jPanel1.add(cbFiltro);
+        cbFiltro.setBounds(160, 124, 229, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btPesquisar))
-                            .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(259, 259, 259))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(41, 41, 41)
-                .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 130, 700, 550);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(0, 0, 700, 550);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 700, 676);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -300,6 +278,8 @@ public class FRConJogos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;

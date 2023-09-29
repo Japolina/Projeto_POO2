@@ -58,74 +58,117 @@ public class FRCadJogos extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("[ULBRA] - Cadastro de Jogos");
+        setMinimumSize(new java.awt.Dimension(1311, 680));
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(84, 84, 84));
+        jPanel1.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/controllerADD2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/nuvem.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(96, 33, 64, 64);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cadastrar Jogos");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(187, 44, 294, 44);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nome");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(96, 146, 41, 17);
 
+        txtNome.setBackground(new java.awt.Color(51, 51, 51));
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
+        jPanel1.add(txtNome);
+        txtNome.setBounds(96, 169, 385, 28);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Gênero");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(96, 215, 50, 17);
 
+        txtGenero.setBackground(new java.awt.Color(51, 51, 51));
+        txtGenero.setForeground(new java.awt.Color(255, 255, 255));
         txtGenero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGeneroActionPerformed(evt);
             }
         });
+        jPanel1.add(txtGenero);
+        txtGenero.setBounds(96, 238, 385, 28);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Produtora");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(96, 284, 71, 17);
 
+        txtProdutora.setBackground(new java.awt.Color(51, 51, 51));
+        txtProdutora.setForeground(new java.awt.Color(255, 255, 255));
         txtProdutora.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtProdutora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProdutoraActionPerformed(evt);
             }
         });
+        jPanel1.add(txtProdutora);
+        txtProdutora.setBounds(96, 307, 385, 28);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Data de Lançamento");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(96, 353, 142, 17);
 
+        txtDataLan.setBackground(new java.awt.Color(51, 51, 51));
+        txtDataLan.setForeground(new java.awt.Color(255, 255, 255));
         txtDataLan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtDataLan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataLanActionPerformed(evt);
             }
         });
+        jPanel1.add(txtDataLan);
+        txtDataLan.setBounds(96, 376, 385, 28);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Classificação Indicativa");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(96, 422, 157, 17);
 
+        txtClassfi.setBackground(new java.awt.Color(51, 51, 51));
+        txtClassfi.setForeground(new java.awt.Color(255, 255, 255));
         txtClassfi.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtClassfi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtClassfiActionPerformed(evt);
             }
         });
+        jPanel1.add(txtClassfi);
+        txtClassfi.setBounds(96, 445, 385, 28);
 
-        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/save2_1.png"))); // NOI18N
+        btSalvar.setBackground(new java.awt.Color(51, 51, 51));
+        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_save.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -137,26 +180,40 @@ public class FRCadJogos extends javax.swing.JDialog {
                 btSalvarActionPerformed(evt);
             }
         });
+        jPanel1.add(btSalvar);
+        btSalvar.setBounds(519, 564, 146, 45);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
+        btCancelar.setBackground(new java.awt.Color(51, 51, 51));
+        btCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_back.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(btCancelar);
+        btCancelar.setBounds(711, 564, 144, 45);
 
+        btEscolherImagem.setBackground(new java.awt.Color(51, 51, 51));
+        btEscolherImagem.setForeground(new java.awt.Color(255, 255, 255));
         btEscolherImagem.setText("Escolher Imagem");
         btEscolherImagem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btEscolherImagemMouseClicked(evt);
             }
         });
+        jPanel1.add(btEscolherImagem);
+        btEscolherImagem.setBounds(1128, 273, 142, 41);
 
         lbFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(lbFoto);
+        lbFoto.setBounds(895, 169, 200, 304);
 
+        txtDescricao.setBackground(new java.awt.Color(51, 51, 51));
         txtDescricao.setColumns(20);
         txtDescricao.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtDescricao.setForeground(new java.awt.Color(255, 255, 255));
         txtDescricao.setLineWrap(true);
         txtDescricao.setRows(5);
         txtDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -166,104 +223,33 @@ public class FRCadJogos extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(txtDescricao);
 
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(519, 169, 336, 304);
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Descrição");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(519, 146, 65, 17);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel2))
-                    .addComponent(txtNome)
-                    .addComponent(jLabel4)
-                    .addComponent(txtGenero)
-                    .addComponent(jLabel5)
-                    .addComponent(txtProdutora)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDataLan)
-                    .addComponent(jLabel7)
-                    .addComponent(txtClassfi))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel8))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel2)))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtProdutora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtClassfi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(btEscolherImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(310, 510, 1000, 150);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(330, -20, 980, 560);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(0, 0, 1000, 560);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(0, 500, 1000, 150);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1310, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -442,6 +428,9 @@ public class FRCadJogos extends javax.swing.JDialog {
     private javax.swing.JButton btEscolherImagem;
     private javax.swing.JButton btSalvar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -449,6 +438,7 @@ public class FRCadJogos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbFoto;
