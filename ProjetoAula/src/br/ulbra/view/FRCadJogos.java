@@ -297,10 +297,10 @@ public class FRCadJogos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Campo 'Nome' está vázio");
             return false;
         }
-        if(!txtNome.getText().matches("^[a-zA-Z0-9]*$")){
+        if(!txtNome.getText().matches("^[\\p{L}[0-9]]+[ ]+$")){
             JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
             return false;
-        }
+        }//"^[a-zA-Z0-9]*$"
         if(txtGenero.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Campo 'Gênero' está vázio");
             return false;

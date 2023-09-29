@@ -103,12 +103,19 @@ public class JogoDAO {
     public List<Jogo> readForDesc(int tipo, String desc) {
         String sql;
 
-        if (tipo == 0 || tipo == 1) {
-            sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?";
-        } else {
-            sql = "SELECT * FROM tbjogos WHERE produtorajogo LIKE ?";
-        } if (tipo == 0 || tipo == 1){
-            sql = "SELECT * FROM tbjogos WHERE generojogo LIKE ?";
+        switch (tipo){
+            case 0: sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?"; 
+            break;
+            case 1: sql = "SELECT * FROM tbjogos WHERE nomejogo LIKE ?"; 
+            break;
+            case 2: sql = "SELECT * FROM tbjogos WHERE generojogo LIKE ?"; 
+            break;
+            case 3: sql = "SELECT * FROM tbjogos WHERE produtorajogo LIKE ?"; 
+            break;
+            
+            
+            default: sql = " "; 
+            break;
         }
 
         GerenciadorConexao gerenciador = GerenciadorConexao.getInstancia();
@@ -120,11 +127,12 @@ public class JogoDAO {
         try {
             stmt = con.prepareStatement(sql);
 
-            if (tipo == 0 || tipo == 2) {
-                stmt.setString(1, desc + "%");
+            if (tipo == 1 || tipo == 2) {
+                stmt.setString(1, "%"+desc + "%");
             } else {
-                stmt.setString(1, "%" + desc + "%");
+                stmt.setString(1, desc + "%");
             }
+            
             
 
             rs = stmt.executeQuery();
