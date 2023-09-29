@@ -6,7 +6,7 @@ Esse projeto é um projeto feito no em aula no colégio Ulbra São Lucas.
 
 ## 📚 Qual foi a base do site?
 
-Foi criada na linguagem de Java no programa do NetBeans IDE 8.2. E foi usado o MySQL como Banco de Dados.
+Foi criada na linguagem de Java no programa do NetBeans IDE 8.2. E foi usado o MySQL Workbench como Banco de Dados.
 
 ## 🔨 Ferramentas
 
