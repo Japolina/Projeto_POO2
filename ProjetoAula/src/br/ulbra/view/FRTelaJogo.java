@@ -55,16 +55,21 @@ public class FRTelaJogo extends javax.swing.JDialog {
         btAlterar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("[ULBRA] - Detalhes do Jogo");
+        setMinimumSize(new java.awt.Dimension(996, 669));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(84, 84, 84));
+        jPanel1.setLayout(null);
 
         btVoltar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/back.png"))); // NOI18N
         btVoltar3.setText("Voltar");
@@ -78,12 +83,18 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 btVoltar3ActionPerformed(evt);
             }
         });
+        jPanel1.add(btVoltar3);
+        btVoltar3.setBounds(370, 576, 149, 55);
 
         lbFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel1.add(lbFoto);
+        lbFoto.setBounds(573, 23, 200, 300);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Gênero");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(573, 341, 50, 17);
 
         txtGenero.setEditable(false);
         txtGenero.setBackground(new java.awt.Color(84, 84, 84));
@@ -95,10 +106,14 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtGeneroActionPerformed(evt);
             }
         });
+        jPanel1.add(txtGenero);
+        txtGenero.setBounds(573, 364, 401, 28);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Produtora");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(573, 410, 71, 17);
 
         txtProdutora.setEditable(false);
         txtProdutora.setBackground(new java.awt.Color(84, 84, 84));
@@ -110,10 +125,14 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtProdutoraActionPerformed(evt);
             }
         });
+        jPanel1.add(txtProdutora);
+        txtProdutora.setBounds(573, 433, 401, 28);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Data de Lançamento");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(791, 130, 183, 17);
 
         txtDataLan.setEditable(false);
         txtDataLan.setBackground(new java.awt.Color(84, 84, 84));
@@ -125,10 +144,14 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtDataLanActionPerformed(evt);
             }
         });
+        jPanel1.add(txtDataLan);
+        txtDataLan.setBounds(791, 165, 183, 28);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(791, 23, 17, 17);
 
         txtCodigo.setEditable(false);
         txtCodigo.setBackground(new java.awt.Color(84, 84, 84));
@@ -140,6 +163,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtCodigoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCodigo);
+        txtCodigo.setBounds(791, 58, 183, 28);
 
         txtNome.setEditable(false);
         txtNome.setBackground(new java.awt.Color(84, 84, 84));
@@ -151,6 +176,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtNomeActionPerformed(evt);
             }
         });
+        jPanel1.add(txtNome);
+        txtNome.setBounds(32, 23, 487, 28);
 
         txtClassfi1.setEditable(false);
         txtClassfi1.setBackground(new java.awt.Color(84, 84, 84));
@@ -162,10 +189,14 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 txtClassfi1ActionPerformed(evt);
             }
         });
+        jPanel1.add(txtClassfi1);
+        txtClassfi1.setBounds(791, 295, 183, 28);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Classificação Indicativa");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(791, 260, 183, 17);
 
         btAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/lapis2.png"))); // NOI18N
         btAlterar.setText("Alterar");
@@ -179,6 +210,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
                 btAlterarActionPerformed(evt);
             }
         });
+        jPanel1.add(btAlterar);
+        btAlterar.setBounds(573, 576, 144, 55);
 
         txtDescricao.setEditable(false);
         txtDescricao.setBackground(new java.awt.Color(84, 84, 84));
@@ -190,98 +223,19 @@ public class FRTelaJogo extends javax.swing.JDialog {
         txtDescricao.setBorder(null);
         jScrollPane2.setViewportView(txtDescricao);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGenero)
-                            .addComponent(txtProdutora)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDataLan, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtClassfi1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtClassfi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtProdutora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btVoltar3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
-        );
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(32, 69, 487, 489);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 560, 990, 110);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/fundo4.jpg"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 990, 560);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 992, 669);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -374,7 +328,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -408,6 +362,8 @@ public class FRTelaJogo extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btVoltar3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
