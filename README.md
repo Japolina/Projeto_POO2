@@ -2,7 +2,7 @@
 
 ## 📘 Sobre
 
-Esse projeto é um projeto feito no em aula no colégio Ulbra São Lucas.
+Esse projeto é um projeto feito em aula no colégio Ulbra São Lucas. 
 
 ## 📚 Qual foi a base do site?
 
