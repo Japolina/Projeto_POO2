@@ -39,7 +39,7 @@ Foi criada na linguagem de Java no programa do NetBeans IDE 8.2. E foi usado o M
 
 ## 📜 Licença
 
-Este projeto está sob a licença do MIT. Veja o arquivo <a href="https://github.com/Japolina/Abiel_Site/blob/main/LICENSE">LICENÇA</a> para mais detalhes.
+Este projeto está sob a licença do MIT. Veja o arquivo <a href="https://github.com/Japolina/Projeto_POO2/blob/main/LICENSE">LICENÇA</a> para mais detalhes.
 
 ---
 
