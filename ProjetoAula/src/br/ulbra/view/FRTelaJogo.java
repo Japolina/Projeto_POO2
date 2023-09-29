@@ -79,13 +79,16 @@ public class FRTelaJogo extends javax.swing.JDialog {
             }
         });
 
-        lbFoto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lbFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Gênero");
 
         txtGenero.setEditable(false);
+        txtGenero.setBackground(new java.awt.Color(84, 84, 84));
+        txtGenero.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGenero.setForeground(new java.awt.Color(255, 255, 255));
         txtGenero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel6.setText("Produtora");
 
         txtProdutora.setEditable(false);
+        txtProdutora.setBackground(new java.awt.Color(84, 84, 84));
+        txtProdutora.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtProdutora.setForeground(new java.awt.Color(255, 255, 255));
         txtProdutora.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtProdutora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +116,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel7.setText("Data de Lançamento");
 
         txtDataLan.setEditable(false);
+        txtDataLan.setBackground(new java.awt.Color(84, 84, 84));
+        txtDataLan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtDataLan.setForeground(new java.awt.Color(255, 255, 255));
         txtDataLan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtDataLan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +131,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         jLabel8.setText("ID");
 
         txtCodigo.setEditable(false);
+        txtCodigo.setBackground(new java.awt.Color(84, 84, 84));
+        txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +142,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         });
 
         txtNome.setEditable(false);
+        txtNome.setBackground(new java.awt.Color(84, 84, 84));
+        txtNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +153,9 @@ public class FRTelaJogo extends javax.swing.JDialog {
         });
 
         txtClassfi1.setEditable(false);
+        txtClassfi1.setBackground(new java.awt.Color(84, 84, 84));
+        txtClassfi1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtClassfi1.setForeground(new java.awt.Color(255, 255, 255));
         txtClassfi1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         txtClassfi1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,10 +181,13 @@ public class FRTelaJogo extends javax.swing.JDialog {
         });
 
         txtDescricao.setEditable(false);
+        txtDescricao.setBackground(new java.awt.Color(84, 84, 84));
         txtDescricao.setColumns(20);
-        txtDescricao.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtDescricao.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtDescricao.setForeground(new java.awt.Color(255, 255, 255));
         txtDescricao.setLineWrap(true);
         txtDescricao.setRows(5);
+        txtDescricao.setBorder(null);
         jScrollPane2.setViewportView(txtDescricao);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -217,7 +238,6 @@ public class FRTelaJogo extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +245,7 @@ public class FRTelaJogo extends javax.swing.JDialog {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtDataLan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
+                                .addGap(67, 67, 67)
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtClassfi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
