@@ -20,5 +20,6 @@ generoJogo varchar(30) not null,
 produtoraJogo varchar(40) not null,
 dataLanJogo varchar(10) not null,
 classfiJogo varchar(3) not null,
-imagemJogo blob(5242880)
+imagemJogo blob(5242880),
+descricaoJogo varchar(1000) not null
 );

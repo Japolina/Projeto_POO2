@@ -178,6 +178,8 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         jPanel1.add(txtClassfi);
         txtClassfi.setBounds(96, 507, 454, 28);
 
+        btVoltar.setBackground(new java.awt.Color(51, 51, 51));
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_back.png"))); // NOI18N
         btVoltar.setText("Cancelar");
         btVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +195,8 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         jPanel1.add(btVoltar);
         btVoltar.setBounds(682, 626, 144, 45);
 
-        btEscolherImagem.setBackground(new java.awt.Color(153, 153, 153));
+        btEscolherImagem.setBackground(new java.awt.Color(51, 51, 51));
+        btEscolherImagem.setForeground(new java.awt.Color(255, 255, 255));
         btEscolherImagem.setText("Escolher Imagem");
         btEscolherImagem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -225,6 +228,8 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         jPanel1.add(txtCodigo);
         txtCodigo.setBounds(96, 181, 454, 28);
 
+        btExcluir2.setBackground(new java.awt.Color(51, 51, 51));
+        btExcluir2.setForeground(new java.awt.Color(255, 255, 255));
         btExcluir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ulbra/img/b_excluir.png"))); // NOI18N
         btExcluir2.setText("Excluir");
         btExcluir2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,7 +305,7 @@ public class FRUpDelJogo extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
         );
 
         pack();
